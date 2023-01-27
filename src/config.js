@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+export const IMG_CDN_URL =
+  'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/';
 
-///////////////data///////////////////
-
-const restaurantList = [
+export const restaurantList = [
   {
     type: 'restaurant',
     data: {
@@ -739,81 +737,3 @@ const restaurantList = [
     subtype: 'basic',
   },
 ];
-
-const Title = () => (
-  <a href="/">
-    <img
-      className="logo"
-      alt="logo"
-      src="https://scontent.fccu10-1.fna.fbcdn.net/v/t39.30808-6/305754369_567106675207906_8742063842912374873_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NXjhILSenjgAX-CPMWR&_nc_ht=scontent.fccu10-1.fna&oh=00_AfA9DK6kvvOdj1uHD1Kg9pUfk1gFf3d7gIgoAhWd5oNDfA&oe=63D7C12E"
-    />
-  </a>
-);
-
-const Header = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestaurantCard = ({
-  name,
-  cuisines,
-  cloudinaryImageId,
-  lastMileTravelString,
-}) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/' +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(', ')}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div class="restaurant-list">
-      {restaurantList.map((restaurant) => {
-        return <RestaurantCard key={restaurant.data.id} {...restaurant.data} />;
-      })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return (
-    <>
-      <h1>Footer</h1>
-    </>
-  );
-};
-
-const Applayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Applayout />);
